@@ -43,7 +43,7 @@
 	              	</a>
                     <ul class="dropdown-menu">
 	                    <li><a class="dropdown-item" href="sair">Sair</a></li>
-	                    <li><a class="dropdown-item" href="Perfil">Perfil</a></li>
+	                    <li><a class="dropdown-item" href="Perfil?doadorId=<%= session.getAttribute("Id") %>">Perfil</a></li>
 	                    <li><a class="dropdown-item" href="listarPassagens">Passagens</a></li>
                     </ul>
                	  </div>
@@ -55,7 +55,6 @@
     </section>
   </header>
 <br>
-<input name="doadorId" value="<%= session.getAttribute("doadorId") %>" style="visibility:hidden">
 <footer class="bg-color3">
     <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
       <div class="col-md-4 d-flex align-items-center">

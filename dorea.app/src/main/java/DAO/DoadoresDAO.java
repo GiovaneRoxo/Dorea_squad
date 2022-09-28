@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 
 import db.MySqlConnection;
 import model.Doadores;
@@ -38,11 +37,23 @@ public class DoadoresDAO implements CRUD {
 	}
 	
 	public static void deletarDoador(int id_doadores){	
-	
+		sql = "DELETE FROM doadores WHERE Id_doadores = ?";
+		
+		try {
+			
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, id_doadores);
+			ps.executeUpdate();
+			
+			System.out.println("--Correct delete on cliente");
+			
+		} catch(SQLException e) {
+			System.out.println("--Incorrect delete on cliente. " + e.getMessage());
+		}
 	}	
 	
 	public static Doadores findByPk(int id_doadores) {
-		sql = String.format("SELECT * FROM cliente WHERE CLIENTE_ID = %d ", id_doadores);
+		sql = String.format("SELECT * FROM doadores WHERE Id_doadores = %d ", id_doadores);
 		
 		try {
 			Statement statement = connection.createStatement();
@@ -53,7 +64,7 @@ public class DoadoresDAO implements CRUD {
 				doador.setId_doadores(rs.getInt("Id_doadores"));
 				doador.setNome(rs.getString("Nome"));
 				doador.setSobrenome(rs.getString("Sobrenome"));
-				doador.setCpf(rs.getString("cpf"));
+				doador.setCpf(rs.getString("Cpf"));
 				doador.setEmail(rs.getString("Email"));
 				doador.setTelefone(rs.getString("Telefone"));
 				doador.setSenha(rs.getString("Senha"));
@@ -68,8 +79,27 @@ public class DoadoresDAO implements CRUD {
 		}		
 	}
 	
-	public static void update(Doadores doadores) {
+	public static void update(Doadores doador) {
 		
+		sql = "UPDATE doadores SET nome=?, Sobrenome=?, cpf=?, email=?, Telefone=?, senha=? WHERE Id_doadores=?";
+		
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			
+			preparedStatement.setString(1, doador.getNome());
+			preparedStatement.setString(2, doador.getSobrenome());
+			preparedStatement.setString(3, doador.getCpf());
+			preparedStatement.setString(4, doador.getEmail());
+			preparedStatement.setString(5, doador.getTelefone());
+			preparedStatement.setString(6, doador.getSenha());
+			preparedStatement.setInt(7, doador.getId_doadores());
+			preparedStatement.executeUpdate();
+			
+			System.out.println("--corect update on database");
+			
+		} catch(SQLException e) {
+			System.out.println("--incorect update on database. " + e.getMessage());
+		}
 	}
 
 	public static boolean loginValidar(String email, String senha) {

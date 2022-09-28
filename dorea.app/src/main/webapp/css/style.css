@@ -1,0 +1,131 @@
+@charset "ISO-8859-1";
+
+/*BREAKPOINTS DA PAGINA*/
+    @media screen and (max-width: 553px) {
+        .fix-breakpoint {
+            display: flex;
+        }
+
+        .fix-breakpoint1 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .order1 {
+            order: 1;
+        }
+
+        .order2 {
+            order: 2;
+        }
+    }
+
+
+
+/*TAGS CONFIGURAÇÕES*/
+
+    html {
+        height: 100%;
+        min-height: 100%;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+    }
+
+    footer {
+        margin-top: auto;
+    }
+
+/*
+BODY-COLOR // BG-COLOR2 // BG-COLOR3 - SÃO NOSSAS 3 CORES DO SITE
+*/
+
+    .body-color{
+        background-color: #F7F7FF;
+    }
+
+
+    .bg-color1{
+        background-color: #06d6a0;
+    }
+
+    .bg-color2{
+        background-color: #022B3A;
+    }
+
+    .bg-color3{
+        background-color: #ffb400;
+    }
+
+    .txt-color{
+        color: #022B3A !important;
+    }
+
+    .txt-color2{
+        color: #ffb400 !important;
+    }
+
+
+
+/* CLASSES DO HEADER */ 
+/*
+CLASS LOGIN - DEFINE A COR DO TEXTO COMO BRANCO E TIRA LINHAS EMBAIXO DO TEXTO
+*/
+    .login{
+    text-decoration: none;
+    }
+
+/*DEFINE COR DE DETALHES DA PAGINA, COMO NAVBAR*/
+
+    .hover-color:hover{
+        color: white !important;
+    }
+
+    a:hover,svg:hover {
+        fill:#F7F7FF !important;
+        color: white !important;
+    }
+
+    .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+        color: rgb(255, 255, 255) !important;
+    }
+
+    .contorno{
+        color: rgb(255, 255, 255);
+        -webkit-text-stroke: 1px rgb(0, 0, 0);
+    }
+
+
+/*
+DEFINE TEXTO EM BRANCO COM CONTORNO PRETO
+*/
+.contorno{
+     color: rgb(255, 255, 255);
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
+}
+
+/* PÁGINA CONTATO */
+.cor-botao-contato {
+    background: #06d6a0  !important;
+    color: #FFF !important;
+  }
+  .btn:hover {
+     color: #06d6a0 !important;
+     background-color: #FFF !important;
+     border-color: #FFF !important; 
+}
+
+.form-titulo{
+    color:#FFF;
+    padding:20px 0 10px 0px 
+}
+.form-lab{
+    font: 16px;
+    color:white
+}
+.pad-top15{
+    padding-top: 15px !important;
+}

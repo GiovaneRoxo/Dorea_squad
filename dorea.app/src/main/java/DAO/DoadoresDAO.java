@@ -10,14 +10,14 @@ import model.Doadores;
 
 public class DoadoresDAO implements CRUD {
 
-	private static Connection connection = MySqlConnection.createConnection();
+	private static Connection con = MySqlConnection.createConnection();
 	private static String sql;
 	
 	public static void criarDoador(Doadores doadores) {		
 		sql = "INSERT INTO doadores VALUES (null, ?, ?, ?, ?, ?, ?)";
 		
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			PreparedStatement preparedStatement = con.prepareStatement(sql);
 			
 			preparedStatement.setString(1, doadores.getNome());
 			preparedStatement.setString(2, doadores.getSobrenome());

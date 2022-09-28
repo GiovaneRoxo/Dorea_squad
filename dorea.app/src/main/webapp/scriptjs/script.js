@@ -10,6 +10,20 @@ cpf.addEventListener('keypress', () => {
 	}
 })
 
+const cnpj = document.getElementById('cnpjTeste');
+
+cnpj.addEventListener('keypress', () => {
+	let cnpjlength = cnpj.value.length
+	
+   	if ( cnpjlength === 2 ||  cnpjlength === 6) {
+		cnpj.value += '.'
+	} else if (cnpjlength === 10) {
+		cnpj.value += '/'
+	} else if (cnpjlength === 15) {
+		cnpj.value += '-'
+	}
+})
+
 function somenteNumeros(num) {
         var er = /[^0-9.-]/;
         er.lastIndex = 0;

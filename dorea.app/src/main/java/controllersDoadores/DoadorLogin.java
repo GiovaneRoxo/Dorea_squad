@@ -30,7 +30,7 @@ public class DoadorLogin extends HttpServlet {
 			String nome = DoadoresDAO.returnarNomeByEmail(email);
 			int doadorId = DoadoresDAO.findIdByEmail(email);
 			session_nome.setAttribute("name", nome);
-			session_id.setAttribute("doadorId", doadorId);
+			session_id.setAttribute("Id", doadorId);
 			dispatcher = request.getRequestDispatcher("/pages/doadorLogado/Logado.jsp");
 			dispatcher.forward(request, response);
 		} else {

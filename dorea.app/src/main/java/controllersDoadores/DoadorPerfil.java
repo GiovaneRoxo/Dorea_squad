@@ -30,7 +30,19 @@ public class DoadorPerfil extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		Doadores doador = new Doadores();
+		doador.setId_doadores(Integer.parseInt(request.getParameter("id")));
+		doador.setNome(request.getParameter("nome"));
+		doador.setSobrenome(request.getParameter("sobrenome"));
+		doador.setCpf(request.getParameter("cpf"));
+		doador.setEmail(request.getParameter("email"));
+		doador.setTelefone(request.getParameter("telefone"));
+		doador.setSenha(request.getParameter("senha"));
+		DoadoresDAO.update(doador);
+		DoadorCreateAndFind doadorCAndFind = new DoadorCreateAndFind();
+		doadorCAndFind.doGet(request, response);
+		RequestDispatcher despachar = request.getRequestDispatcher("pages/doadorLogado/Logado.jsp");
+		despachar.forward(request, response);
 	}
 
 }

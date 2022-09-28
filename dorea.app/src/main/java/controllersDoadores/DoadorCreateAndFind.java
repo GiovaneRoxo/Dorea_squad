@@ -1,4 +1,4 @@
-package Controllers;
+package controllersDoadores;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -12,10 +12,10 @@ import model.Doadores;
 
 
 @WebServlet("/CreateAndFind")
-public class DoadoresCreateAndFind extends HttpServlet {
+public class DoadorCreateAndFind extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public DoadoresCreateAndFind() {
+    public DoadorCreateAndFind() {
         super();
     }
 
@@ -32,7 +32,7 @@ public class DoadoresCreateAndFind extends HttpServlet {
 		doador.setTelefone(request.getParameter("telefone"));
 		doador.setSenha(request.getParameter("senha"));
 		DoadoresDAO.criarDoador(doador);
-		response.sendRedirect("pages/logado/menulogin.html");
+		response.sendRedirect("pages/login.jsp");
 		doGet(request, response);
 	}
 

@@ -1,4 +1,4 @@
-package Controllers;
+package controllersOrganizador;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -24,7 +24,7 @@ public class OrganizadorCreateAndFind extends HttpServlet {
 		organizador.setTelefone(request.getParameter("telefone"));
 		organizador.setSenha(request.getParameter("senha"));
 		OrganizadorDAO.criarOrganizador(organizador);
-		response.sendRedirect("pages/logado/menulogin.html");
+		response.sendRedirect("pages/loginAdm.html");
 	}
 
 }

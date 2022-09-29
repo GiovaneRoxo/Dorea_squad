@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DAO.DoadoresDAO;
 import DAO.OrganizadorDAO;
 
 @WebServlet("/OrganizadorLogado")
@@ -31,10 +30,10 @@ public class OrganizadorLogin extends HttpServlet {
 			int organizadorId = OrganizadorDAO.findIdByEmail(email);
 			session_nome.setAttribute("name", nome);
 			session_id.setAttribute("organizadorId", organizadorId);
-			dispatcher = request.getRequestDispatcher("/pages/organizadorLogado/Logado.jsp");
+			dispatcher = request.getRequestDispatcher("/pages/organizadorLogado/LogadoAdm.jsp");
 			dispatcher.forward(request, response);
 		} else {
-			response.sendRedirect("/pages/login.jsp");
+			response.sendRedirect("/pages/loginAdm.jsp");
 		}
 		doGet(request, response);
 	}

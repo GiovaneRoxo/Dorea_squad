@@ -1,10 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%
+	if(session.getAttribute("name") == null) {
+		response.sendRedirect("pages/loginAdm.jsp");
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>DOREA - Login Organizador</title>
+<title>DOREA</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
  <header class="container-fluid bg-color3">
@@ -21,10 +28,10 @@
             </button>
             <div id="navcol-1" class="collapse navbar-collapse">
               <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item"><a href="../index.html" class="nav-link active txt-color hover-color">Home</a></li>
-                <li class="nav-item"><a href="sobre.html" class="nav-link active txt-color">Sobre</a></li>
-                <li class="nav-item"><a href="parceiros.html" class="nav-link active txt-color">Parceiros</a></li>
-                <li class="nav-item"><a href="contato.html" class="nav-link active txt-color">Contato</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/index.html" class="nav-link active txt-color hover-color">Home</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/sobre.html" class="nav-link active txt-color">Sobre</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/parceiros.html" class="nav-link active txt-color">Parceiros</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/contato.html" class="nav-link active txt-color">Contato</a></li>
               </ul>
             </div>
           </div>
@@ -35,7 +42,7 @@
           <ul class="nav justify-content-end" style="margin-top: 15px;">
             <li class="nav-item">
               <div class="hover-color">
-              <a class="login txt-color" href="login.jsp">Login 
+              <a class="login txt-color" href=""><%= session.getAttribute("name") %>
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                 <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                 </svg>
@@ -59,24 +66,36 @@
 	<div class="row">
 		<div class="cold-md-7">
 		<hr>
-			<h3>Login Organizador</h3>
+		<h3>Atualização de dados</h3>
 		<hr>
-		<form name="LoginOrganizador" action="../OrganizadorLogado" method="post">
+		<form name="cadastroAdm" action="${pageContext.request.contextPath}/PerfilAdm" method="post">
+			<input value="${organizador.id_organizador}" style="visibility:hidden" name="id">
 			<div class="form-floating mb-3">
-				<input name="email" required maxlength="50" type="text" class="form-control"onclick="ValidateEmail(document.cadastro.text1)"> 
+				<input value="${organizador.nome}" name="nome" required maxlength="40" type="text" class="form-control" id="floatingInput1"> 
+				<label>Nome</label>
+			</div>
+			<div class="form-floating mb-3">
+				<input value="${organizador.cnpj}" id="cnpj" name="cnpj" required maxlength="18" type="text" class="form-control" onkeyup="somenteNumeros(this);"> 
+				<label>CNPJ</label>
+			</div>
+			<div class="form-floating mb-3">
+				<input value="${organizador.email}" id="email" name="email" required maxlength="50" type="text" class="form-control"onclick="ValidateEmail(document.cadastro.text1)"> 
 				<label>Email</label>
 			</div>
 			<div class="form-floating mb-3">
-				<input name="senha" required maxlength="16" type="password" class="form-control" onkeyup='confereSenha();'> 
+				<input value="${organizador.telefone}" name="telefone" required maxlength="11" type="text" class="form-control"> 
+				<label>Celular: (DDD)xxxxx-xxxx </label>
+			</div>
+			<div class="form-floating mb-3">
+				<input value="${organizador.senha}" name="senha" required maxlength="16" type="password" class="form-control" onkeyup='confereSenha();'> 
 				<label>Senha</label>
 			</div>
-			<button class="btn btn-primary" type="submit">Entrar</button>
+			<button class="btn btn-primary" type="submit">Atualizar organizador</button>
+			<a class="btn btn-secondary" href="OrganizadorDestroy?organizadorId=${organizador.id_organizador}">Deletar conta</a>
 		</form>
-		<a class="btn btn-link" href="login.jsp">Sou Doador</a>
 		</div>
 	</div>	
 </div>
-
 <footer class="bg-color3">
     <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
       <div class="col-md-4 d-flex align-items-center">
@@ -89,8 +108,5 @@
       </ul>
     </div>
 </footer>
-
-<script type="text/javascript" src="../scriptjs/script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>

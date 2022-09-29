@@ -28,10 +28,10 @@
             </button>
             <div id="navcol-1" class="collapse navbar-collapse">
               <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item"><a href="${pageContext.request.contextPath}/index.html" class="nav-link active txt-color hover-color">Home</a></li>
-                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/sobre.html" class="nav-link active txt-color">Sobre</a></li>
-                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/parceiros.html" class="nav-link active txt-color">Parceiros</a></li>
-                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/contato.html" class="nav-link active txt-color">Contato</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}#" class="nav-link active txt-color hover-color">Home</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}#" class="nav-link active txt-color">Sobre</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}#" class="nav-link active txt-color">Parceiros</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}#" class="nav-link active txt-color">Contato</a></li>
               </ul>
             </div>
           </div>
@@ -40,21 +40,21 @@
       <div class="container d-flex">
         <div class="container">
           <ul class="nav justify-content-end" style="margin-top: 15px;">
-            <li class="nav-item">
+            <li class="nav-item" style="margin-top: 0px">
               <div class="hover-color">
-              <a class="login txt-color" href=""><%= session.getAttribute("name") %>
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                </svg>
-              </a>
+                  <div class="dropdown mb-2 mt-md-2">
+                    <a class="dropdown-toggle login txt-color" data-bs-toggle="dropdown"><%= session.getAttribute("name") %>
+		                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+		                	<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+		                </svg>
+	              	</a>
+                    <ul class="dropdown-menu">
+	                    <li><a class="dropdown-item" href="sair">Sair</a></li>
+	                    <li><a class="dropdown-item" href="Perfil?doadorId=<%= session.getAttribute("Id") %>">Perfil</a></li>
+	                    <li><a class="dropdown-item" href="listarPassagens">#</a></li>
+                    </ul>
+               	  </div>
               </div>
-            </li>
-            <li class="nav-item hover-color">
-              <a class="login txt-color hover-color" href="cadastro.html">Cadastrar
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                </svg>
-              </a>
             </li>
           </ul>
         </div>

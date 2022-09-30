@@ -9,6 +9,7 @@ public class Doadores {
 	private String Email;
 	private String telefone;
 	private String senha;
+	
 	public int getId_doadores() {
 		return id_doadores;
 	}

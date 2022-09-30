@@ -31,7 +31,7 @@ public class OrganizadorPerfil extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Organizador organizador = new Organizador();
-		organizador.setId_organizador(Integer.parseInt(request.getParameter("organizadorId")));
+		organizador.setId_organizador(Integer.parseInt(request.getParameter("id")));
 		organizador.setNome(request.getParameter("nome"));
 		organizador.setCnpj(request.getParameter("cnpj"));
 		organizador.setEmail(request.getParameter("email"));

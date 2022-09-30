@@ -44,7 +44,7 @@
                     <ul class="dropdown-menu">
 	                    <li><a class="dropdown-item" href="sair">Sair</a></li>
 	                    <li><a class="dropdown-item" href="Perfil?doadorId=<%= session.getAttribute("Id") %>">Perfil</a></li>
-	                    <li><a class="dropdown-item" href="#">#</a></li>
+	                    <li><a class="dropdown-item" href="#">Minhas doações</a></li>
                     </ul>
                	  </div>
               </div>

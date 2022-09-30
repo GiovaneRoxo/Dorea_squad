@@ -3,9 +3,17 @@ package model;
 public class Projetos {
 
 	private int id_projeto;
+	private int fk_Organizador_Id_organizador;
 	private String nome;
 	private Double objetivo;
 	private Double arrecadado;
+	
+	public int getFk_Organizador_Id_organizador() {
+		return fk_Organizador_Id_organizador;
+	}
+	public void setFk_Organizador_Id_organizador(int fk_Organizador_Id_organizador) {
+		this.fk_Organizador_Id_organizador = fk_Organizador_Id_organizador;
+	}
 	public int getId_projeto() {
 		return id_projeto;
 	}

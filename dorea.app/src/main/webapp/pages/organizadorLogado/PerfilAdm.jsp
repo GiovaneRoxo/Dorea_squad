@@ -51,7 +51,8 @@
                     <ul class="dropdown-menu">
 	                    <li><a class="dropdown-item" href="sairAdm">Sair</a></li>
 	                    <li><a class="dropdown-item" href="PerfilAdm?Id=<%= session.getAttribute("organizadorId") %>">Perfil</a></li>
-	                    <li><a class="dropdown-item" href="#">#</a></li>
+	                    <li><a class="dropdown-item" href="#">Meus projetos</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/pages/organizadorLogado/CriarProjeto.jsp">Criar novo projeto</a></li>
                     </ul>
                	  </div>
               </div>
@@ -108,5 +109,7 @@
       </ul>
     </div>
 </footer>
+<script type="text/javascript" src="${pageContext.request.contextPath}/scriptjs/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>

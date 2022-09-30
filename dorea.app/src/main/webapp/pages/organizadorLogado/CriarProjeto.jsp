@@ -1,20 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="UTF-8"%>
 <%
 	if(session.getAttribute("name") == null) {
-		response.sendRedirect("pages/login.jsp");
+		response.sendRedirect("pages/loginAdm.jsp");
 	}
 %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>DOREA</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
-<header class="container-fluid bg-color3">
+ <header class="container-fluid bg-color3">
     <section class="container d-flex ">
       <div class="container">
         <nav class="navbar navbar-dark navbar-expand-md">    
@@ -49,9 +49,10 @@
 		                </svg>
 	              	</a>
                     <ul class="dropdown-menu">
-	                 	<li><a class="dropdown-item" href="sair">Sair</a></li>
-	                    <li><a class="dropdown-item" href="Perfil?doadorId=<%= session.getAttribute("Id") %>">Perfil</a></li>
-	                    <li><a class="dropdown-item" href="#">Minhas doações</a></li>
+	                    <li><a class="dropdown-item" href="sairAdm">Sair</a></li>
+	                    <li><a class="dropdown-item" href="PerfilAdm?Id=<%= session.getAttribute("organizadorId") %>">Perfil</a></li>
+	                    <li><a class="dropdown-item" href="#">Meus projetos</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/pages/organizadorLogado/CriarProjeto.jsp">Criar novo projeto</a></li>
                     </ul>
                	  </div>
               </div>
@@ -66,36 +67,19 @@
 	<div class="row">
 		<div class="cold-md-7">
 		<hr>
-		<h3>Atualização de dados</h3>
+		<h3>Crie seu projeto</h3>
 		<hr>
-		<form name="cadastro" action="${pageContext.request.contextPath}/Perfil" method="post">
-			<input value="${doador.id_doadores}" style="visibility:hidden" name="id">
+		<form name="cadastroAdm" action="${pageContext.request.contextPath}/ProjetosCAF" method="post">
+			<input value="${projetos.fk_Organizador_Id_organizador}" style="visibility:hidden" name="organizadorId">
 			<div class="form-floating mb-3">
-				<input value="${doador.nome}" name="nome" required maxlength="40" type="text" class="form-control" id="floatingInput1"> 
+				<input name="nome" required maxlength="40" type="text" class="form-control" id="floatingInput1"> 
 				<label>Nome</label>
 			</div>
 			<div class="form-floating mb-3">
-				<input value="${doador.sobrenome}" name="sobrenome" required maxlength="40" type="text" class="form-control" id="floatingInput1"> 
-				<label>Sobrenome</label>
+				<input id="objetivo" name="objetivo" required maxlength="18" type="number" step="0.01" min="0.01" class="form-control" onkeyup="somenteNumeros(this);"> 
+				<label>Objetivo em reais</label>
 			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.cpf}" id="cpf" name="cpf" required maxlength="14" type="text" class="form-control" onkeyup="somenteNumeros(this);"> 
-				<label>CPF</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.email}" id="email" name="email" required maxlength="50" type="text" class="form-control"onclick="ValidateEmail(document.cadastro.text1)"> 
-				<label>Email</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.telefone}" name="telefone" required maxlength="11" type="text" class="form-control"> 
-				<label>Celular: (DDD)xxxxx-xxxx </label>
-			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.senha}" name="senha" required maxlength="16" type="password" class="form-control" onkeyup='confereSenha();'> 
-				<label>Senha</label>
-			</div>
-			<button class="btn btn-primary" type="submit">Atualizar Doadores</button>
-			<a class="btn btn-secondary" href="DoadorDestroy?Id_doador=${doador.id_doadores}">Deletar conta</a>
+			<button class="btn btn-primary" type="submit">Criar projeto</button>
 		</form>
 		</div>
 	</div>	
@@ -103,7 +87,7 @@
 <footer class="bg-color3">
     <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
       <div class="col-md-4 d-flex align-items-center">
-        <span class="mb-3 mb-md-0 txt-color">© 2022</span>
+        <span class="mb-3 mb-md-0 txt-color">Â© 2022</span>
       </div>
       <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
         <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>

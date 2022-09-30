@@ -44,7 +44,8 @@
                     <ul class="dropdown-menu">
 	                    <li><a class="dropdown-item" href="sairAdm">Sair</a></li>
 	                    <li><a class="dropdown-item" href="PerfilAdm?Id=<%= session.getAttribute("organizadorId") %>">Perfil</a></li>
-	                    <li><a class="dropdown-item" href="#">#</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/pages/organizadorLogado/MeusProjetos.jsp">Meus projetos</a></li>
+	                    <li><a class="dropdown-item" href="ProjetosCAF?organizadorId=<%= session.getAttribute("organizadorId") %>">Criar novo projeto</a></li>
                     </ul>
                	  </div>
               </div>

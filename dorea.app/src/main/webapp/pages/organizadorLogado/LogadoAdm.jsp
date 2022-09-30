@@ -21,10 +21,10 @@
             </button>
             <div id="navcol-1" class="collapse navbar-collapse">
               <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item"><a href="${pageContext.request.contextPath}#" class="nav-link active txt-color hover-color">Home</a></li>
-                <li class="nav-item"><a href="${pageContext.request.contextPath}#" class="nav-link active txt-color">Sobre</a></li>
-                <li class="nav-item"><a href="${pageContext.request.contextPath}#" class="nav-link active txt-color">Parceiros</a></li>
-                <li class="nav-item"><a href="${pageContext.request.contextPath}#" class="nav-link active txt-color">Contato</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active txt-color hover-color">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active txt-color">Sobre</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active txt-color">Parceiros</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active txt-color">Contato</a></li>
               </ul>
             </div>
           </div>

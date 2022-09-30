@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
- <header class="container-fluid bg-color3">
+<header class="container-fluid bg-color3">
     <section class="container d-flex ">
       <div class="container">
         <nav class="navbar navbar-dark navbar-expand-md">    
@@ -28,10 +28,10 @@
             </button>
             <div id="navcol-1" class="collapse navbar-collapse">
               <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item"><a href="${pageContext.request.contextPath}#" class="nav-link active txt-color hover-color">Home</a></li>
-                <li class="nav-item"><a href="${pageContext.request.contextPath}#" class="nav-link active txt-color">Sobre</a></li>
-                <li class="nav-item"><a href="${pageContext.request.contextPath}#" class="nav-link active txt-color">Parceiros</a></li>
-                <li class="nav-item"><a href="${pageContext.request.contextPath}#" class="nav-link active txt-color">Contato</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active txt-color hover-color">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active txt-color">Sobre</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active txt-color">Parceiros</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active txt-color">Contato</a></li>
               </ul>
             </div>
           </div>
@@ -51,7 +51,7 @@
                     <ul class="dropdown-menu">
 	                    <li><a class="dropdown-item" href="sair">Sair</a></li>
 	                    <li><a class="dropdown-item" href="Perfil?doadorId=<%= session.getAttribute("Id") %>">Perfil</a></li>
-	                    <li><a class="dropdown-item" href="listarPassagens">#</a></li>
+	                    <li><a class="dropdown-item" href="#">#</a></li>
                     </ul>
                	  </div>
               </div>

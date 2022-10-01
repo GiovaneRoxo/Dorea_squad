@@ -1,3 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="UTF-8"%>
+<%
+	if(session.getAttribute("name") == null) {
+		response.sendRedirect("pages/loginAdm.html");
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +51,7 @@
                     <ul class="dropdown-menu">
 	                    <li><a class="dropdown-item" href="sairAdm">Sair</a></li>
 	                    <li><a class="dropdown-item" href="PerfilAdm?Id=<%= session.getAttribute("organizadorId") %>">Perfil</a></li>
-	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/pages/organizadorLogado/MeusProjetos.jsp">Meus projetos</a></li>
+	                    <li><a class="dropdown-item" href="ProjetoF?organizadorId=<%= session.getAttribute("organizadorId") %>">Meus projetos</a></li>
 	                    <li><a class="dropdown-item" href="ProjetosCAF?organizadorId=<%= session.getAttribute("organizadorId") %>">Criar novo projeto</a></li>
                     </ul>
                	  </div>
@@ -59,7 +66,7 @@
 <footer class="bg-color3">
     <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
       <div class="col-md-4 d-flex align-items-center">
-        <span class="mb-3 mb-md-0 txt-color">© 2022</span>
+        <span class="mb-3 mb-md-0 txt-color">Â© 2022</span>
       </div>
       <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
         <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>

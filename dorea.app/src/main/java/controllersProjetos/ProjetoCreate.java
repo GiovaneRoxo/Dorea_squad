@@ -13,11 +13,11 @@ import DAO.ProjetoDAO;
 import model.Projetos;
 
 @WebServlet("/ProjetosCAF")
-public class ProjetoCreateAndFind extends HttpServlet {
+public class ProjetoCreate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public ProjetoCreateAndFind() {
+    public ProjetoCreate() {
         super();
     }
 

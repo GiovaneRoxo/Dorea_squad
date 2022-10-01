@@ -22,13 +22,10 @@ public class ProjetoFind extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Projetos> listProjetos = ProjetoDAO.findByPk(Integer.parseInt(request.getParameter("organizadorId"))); 
-		request.setAttribute("projetos", listProjetos);
+		int id = Integer.parseInt(request.getParameter("organizadorId"));
+		List<Projetos> listProjetos = ProjetoDAO.findByPk(id); 
+		request.setAttribute("projeto", listProjetos);
 		RequestDispatcher despachar = request.getRequestDispatcher("pages/organizadorLogado/MeusProjetos.jsp");
 		despachar.forward(request, response);
-	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
 	}
 }

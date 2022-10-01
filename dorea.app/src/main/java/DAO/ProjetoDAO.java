@@ -43,10 +43,10 @@ public class ProjetoDAO {
 			
 			while(rs.next()) {
 				Projetos projeto = new Projetos();
-				projeto.getId_projeto();
-				projeto.getNome();
-				projeto.getObjetivo();
-				projeto.getArrecadado();
+				projeto.setId_projeto(rs.getInt("Id_projeto"));
+				projeto.setNome(rs.getString("Nome"));
+				projeto.setObjetivo(rs.getDouble("Objetivo"));
+				projeto.setArrecadado(rs.getDouble("Arrecadado"));
 				projetos.add(projeto);
 			}
 			

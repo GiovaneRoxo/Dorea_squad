@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%
 	if(session.getAttribute("name") == null) {
-		response.sendRedirect("pages/loginAdm.jsp");
+		response.sendRedirect("pages/loginAdm.html");
 	}
 %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
@@ -52,7 +52,7 @@
 	                    <ul class="dropdown-menu">
 		                    <li><a class="dropdown-item" href="sairAdm">Sair</a></li>
 		                    <li><a class="dropdown-item" href="PerfilAdm?Id=<%= session.getAttribute("organizadorId") %>">Perfil</a></li>
-		                    <li><a class="dropdown-item" href="#">Meus projetos</a></li>
+		                    <li><a class="dropdown-item" href="">Meus projetos</a></li>
 		                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/pages/organizadorLogado/CriarProjeto.jsp">Criar novo projeto</a></li>
 	                    </ul>
 	               	  </div>
@@ -77,13 +77,13 @@
 	  <div class="album py-5 bg-light">
 	    <div class="container">
 	      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-	        <c:forEach items="${projetos}" var="projetos">
+	        <c:forEach items="${projeto}" var="projeto">
 		        <div class="col">
 		          <div class="card shadow-sm">
 		            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 		            <div class="card-body">
-		              <h2>${projetos.nome}</h2>
-		              <p class="card-text">R$ ${projetos.objetivo}</p>
+		              <h2>${projeto.nome}</h2>
+		              <p class="card-text">R$ ${projeto.objetivo}</p>
 		              <div class="d-flex justify-content-between align-items-center">
 		                <div class="btn-group">
 		                  <button type="button" class="btn btn-sm btn-outline-secondary">Editar</button>

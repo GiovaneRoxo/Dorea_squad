@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%
 	if(session.getAttribute("name") == null) {
-		response.sendRedirect("pages/loginAdm.jsp");
+		response.sendRedirect("pages/loginAdm.html");
 	}
 %>
 <!DOCTYPE html>

@@ -8,7 +8,7 @@ public class MySqlConnection {
 	
 	private static final String url = "jdbc:mysql://localhost:3306/dorea";
 	private static final String user = "root";
-	private static final String password = "@Gremio1010";
+	private static final String password = "17fd2210";
 	
 	public static Connection createConnection() {
 	

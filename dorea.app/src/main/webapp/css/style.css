@@ -1,4 +1,4 @@
-@charset "ISO-8859-1";
+@charset "UTF-8";
 
 /*BREAKPOINTS DA PAGINA*/
     @media screen and (max-width: 553px) {
@@ -22,11 +22,14 @@
 
 
 
-/*TAGS CONFIGURAÇÕES*/
-
-    html {
+/*TAGS CONFIGURAï¿½ï¿½ES*/
+    
+    main {
         height: 100%;
-        min-height: 100%;
+    }
+
+    .main-tamanho {
+        height: 90vh;
     }
 
     body {
@@ -40,7 +43,7 @@
     }
 
 /*
-BODY-COLOR // BG-COLOR2 // BG-COLOR3 - SÃO NOSSAS 3 CORES DO SITE
+BODY-COLOR // BG-COLOR2 // BG-COLOR3 - Sï¿½O NOSSAS 3 CORES DO SITE
 */
 
     .body-color{
@@ -49,15 +52,19 @@ BODY-COLOR // BG-COLOR2 // BG-COLOR3 - SÃO NOSSAS 3 CORES DO SITE
 
 
     .bg-color1{
-        background-color: #06d6a0;
+        background-color: #04E762;
     }
 
     .bg-color2{
-        background-color: #022B3A;
+        background-color: #DC0073;
     }
 
     .bg-color3{
-        background-color: #ffb400;
+        background-color: #F5B700;
+    }
+
+    .bg-color4{
+        background-color: #008BF8;
     }
 
     .txt-color{
@@ -65,9 +72,8 @@ BODY-COLOR // BG-COLOR2 // BG-COLOR3 - SÃO NOSSAS 3 CORES DO SITE
     }
 
     .txt-color2{
-        color: #ffb400 !important;
+        color: #04E762 !important;
     }
-
 
 
 /* CLASSES DO HEADER */ 
@@ -107,7 +113,7 @@ DEFINE TEXTO EM BRANCO COM CONTORNO PRETO
     -webkit-text-stroke: 1px rgb(0, 0, 0);
 }
 
-/* PÁGINA CONTATO */
+/* Pï¿½GINA CONTATO */
 .cor-botao-contato {
     background: #06d6a0  !important;
     color: #FFF !important;

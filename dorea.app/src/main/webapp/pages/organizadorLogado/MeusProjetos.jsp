@@ -86,8 +86,8 @@
 		              <p class="card-text">R$ ${projeto.objetivo}</p>
 		              <div class="d-flex justify-content-between align-items-center">
 		                <div class="btn-group">
-		                  <button type="button" class="btn btn-sm btn-outline-secondary">Editar</button>
-		                  <button type="button" class="btn btn-sm btn-outline-secondary">Deletar</button>
+		                  <a href="editar?projetoId=${projeto.id_projeto}" class="btn btn-sm btn-outline-secondary">Editar</a>
+		                  <a href="deletar?projetoId=${projeto.id_projeto}" class="btn btn-sm btn-outline-secondary">Deletar</a>
 		                </div>
 		              </div>
 		            </div>

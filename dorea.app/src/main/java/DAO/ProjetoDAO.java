@@ -58,4 +58,58 @@ public class ProjetoDAO {
 			return null;
 		}
 	}
+	
+	public static Projetos buscaByPk(int id_projeto) {
+		sql = String.format("SELECT * FROM projetos WHERE Id_projeto= %d ", id_projeto);
+		
+		try {
+			Statement statement = connection.createStatement();
+			ResultSet rs = statement.executeQuery(sql);
+			Projetos projetos = new Projetos();
+			
+			while(rs.next()) {
+				projetos.setId_projeto(rs.getInt("Id_projeto"));
+				projetos.setNome(rs.getString("Nome"));
+				projetos.setObjetivo(rs.getDouble("Objetivo"));
+				projetos.setArrecadado(rs.getDouble("Arrecadado"));
+				projetos.setFk_Organizador_Id_organizador(rs.getInt("fk_Organizador_Id_organizador"));
+			}
+			
+		System.out.println("--Correct find by pk projetos");
+		return projetos;
+			
+		} catch(SQLException e) {
+			System.out.println("--Incorrect find by pk projetos. " + e.getMessage());
+			return null;
+		}		
+	}
+	
+	public static void Atualizar(Projetos projeto) {
+		sql = "UPDATE projetos SET Nome = ?, Objetivo = ? WHERE Id_projeto=?";
+		try {
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			stmt.setString(1, projeto.getNome());
+			stmt.setDouble(2, projeto.getObjetivo());
+			stmt.setInt(3, projeto.getId_projeto());
+			stmt.executeUpdate();
+			
+			System.out.println("correct update project");
+		} catch(Exception e) {
+			System.out.println("failed update project" + e.getMessage());
+		}
+	}
+	
+	public static void deletarProjeto(int id_projeto){	
+		sql = "DELETE FROM projetos WHERE Id_projeto = ?";
+		
+		try {		
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, id_projeto);
+			ps.executeUpdate();
+			
+			System.out.println("--Correct delete on projeto");			
+		} catch (SQLException e) {
+			System.out.println("--Incorrect delete on projeto. " + e.getMessage());
+		}
+	}
 }

@@ -41,8 +41,7 @@ public class DoadorPerfil extends HttpServlet {
 		DoadoresDAO.update(doador);
 		DoadorCreateAndFind doadorCAndFind = new DoadorCreateAndFind();
 		doadorCAndFind.doGet(request, response);
-		RequestDispatcher despachar = request.getRequestDispatcher("pages/doadorLogado/Logado.jsp");
-		despachar.forward(request, response);
+		response.sendRedirect("./Home");
 	}
 
 }

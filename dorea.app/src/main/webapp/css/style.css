@@ -24,12 +24,9 @@
 
 /*TAGS CONFIGURA��ES*/
     
-    main {
-        height: 100%;
-    }
 
     .main-tamanho {
-        height: 90vh;
+    	min-height: 90vh;
     }
 
     body {
@@ -134,4 +131,8 @@ DEFINE TEXTO EM BRANCO COM CONTORNO PRETO
 }
 .pad-top15{
     padding-top: 15px !important;
+}
+
+.fix_logado{
+	width: 180px;
 }

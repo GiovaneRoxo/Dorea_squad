@@ -40,8 +40,7 @@ public class OrganizadorPerfil extends HttpServlet {
 		OrganizadorDAO.updateAdm(organizador);
 		OrganizadorCreateAndFind organizadorCAndFind = new OrganizadorCreateAndFind();
 		organizadorCAndFind.doGet(request, response);
-		RequestDispatcher despachar = request.getRequestDispatcher("pages/organizadorLogado/LogadoAdm.jsp");
-		despachar.forward(request, response);
+		response.sendRedirect("./Inicio");
 	}
 
 }

@@ -1,22 +1,18 @@
-<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	if(session.getAttribute("name") == null) {
-		response.sendRedirect("/index.html");
-	}
-%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Doreá</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/stylesheet.css">
 </head>
+
 <body>
 
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -30,8 +26,8 @@
       <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
     </symbol>
   </svg>
-  
- <header class="container-fluid bg-color1">
+
+<header class="container-fluid bg-color1">
     <section class="container d-flex ">
       <div class="container">
         <nav class="navbar navbar-dark navbar-expand-md">    
@@ -45,42 +41,40 @@
             </button>
             <div id="navcol-1" class="collapse navbar-collapse">
               <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item"><a href="${pageContext.request.contextPath}/Inicio" class="nav-link active txt-color hover-color"><i class="bi bi-house-fill"></i> Home</a></li>
-                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/organizadorLogado/sobre.jsp" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
-                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/organizadorLogado/parceiros.jsp" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
-                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/organizadorLogado/contato.jsp" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li>
-             </ul>
+                <li class="nav-item"><a href="../index.html" class="nav-link active txt-color hover-color"><i class="bi bi-house-fill"></i> Home</a></li>
+                <li class="nav-item"><a href="./pages/sobre.html" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
+                <li class="nav-item"><a href="./pages/parceiros.html" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
+                <li class="nav-item"><a href="./pages/contato.html" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li></ul>
             </div>
           </div>
         </nav>
       </div>
-      <div class="container d-flex my-0 fix_logado">
+      <div class="container d-flex">
         <div class="container">
-          <ul class="nav justify-content-end" style="margin-top: 10px;">
-            <li class="nav-item" style="margin-top: 0px">
+          <ul class="nav justify-content-end" style="margin-top: 15px;">
+            <li class="nav-item">
               <div class="hover-color">
-                  <div class="dropdown mb-2 mt-md-2">
-                    <a class="dropdown-toggle login txt-color" data-bs-toggle="dropdown"><%= session.getAttribute("name") %>
-		                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-		                	<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-		                </svg>
-	              	</a>
-                    <ul class="dropdown-menu">
-	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/sairAdm">Sair</a></li>
-	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/PerfilAdm?Id=<%= session.getAttribute("organizadorId") %>">Perfil</a></li>
-	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/ProjetoF?organizadorId=<%= session.getAttribute("organizadorId") %>">Meus projetos</a></li>
-	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/ProjetosCAF?organizadorId=<%= session.getAttribute("organizadorId") %>">Criar novo projeto</a></li>
-                    </ul>
-               	  </div>
+              <a class="login txt-color" href="${pageContext.request.contextPath}/pages/login.jsp">Login 
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                </svg>
+              </a>
               </div>
+            </li>
+            <li class="nav-item hover-color">
+              <a class="login txt-color hover-color" href="${pageContext.request.contextPath}/pages/cadastro.html">Cadastrar
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                </svg>
+              </a>
             </li>
           </ul>
         </div>
       </div>
     </section>
   </header>
-
-	<main>
+  
+  <main>
 	  <section class="py-5 text-center container">
 	    <div class="row py-lg-5">
 	      <div class="col-lg-6 col-md-8 mx-auto">

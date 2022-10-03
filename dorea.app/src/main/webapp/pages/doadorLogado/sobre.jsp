@@ -1,14 +1,21 @@
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	if(session.getAttribute("name") == null) {
+		response.sendRedirect("../sobre.html");
+	}
+%>
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Doreá</title>
-  <link rel="shortcut icon" href="./imgs/favicon.svg" type="image/x-icon">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="./css/stylesheet.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Doreá</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/stylesheet.css">
 </head>
 <body>
 
@@ -23,7 +30,7 @@
       <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
     </symbol>
   </svg>
-
+  
  <header class="container-fluid bg-color1">
     <section class="container d-flex ">
       <div class="container">
@@ -38,11 +45,11 @@
             </button>
             <div id="navcol-1" class="collapse navbar-collapse">
               <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item"><a href="./index.html" class="nav-link active txt-color hover-color"><i class="bi bi-house-fill"></i> Home</a></li>
-                <li class="nav-item"><a href="./pages/sobre.html" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
-                <li class="nav-item"><a href="./pages/parceiros.html" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
-                <li class="nav-item"><a href="./pages/contato.html" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li>
-              </ul>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/Home" class="nav-link active txt-color hover-color"><i class="bi bi-house-fill"></i> Home</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/doadorLogado/sobre.jsp" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/doadorLogado/parceiros.jsp" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/doadorLogado/contato.jsp" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li>
+             </ul>
             </div>
           </div>
         </nav>
@@ -50,32 +57,62 @@
       <div class="container d-flex">
         <div class="container">
           <ul class="nav justify-content-end" style="margin-top: 15px;">
-            <li class="nav-item">
+            <li class="nav-item" style="margin-top: 0px">
               <div class="hover-color">
-              <a class="login txt-color" href="pages/login.jsp">Login 
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                </svg>
-              </a>
+                  <div class="dropdown mb-2 mt-md-2">
+                    <a class="dropdown-toggle login txt-color" data-bs-toggle="dropdown"><%= session.getAttribute("name") %>
+		                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+		                	<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+		                </svg>
+	              	</a>
+                    <ul class="dropdown-menu">
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/sair">Sair</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/Perfil?doadorId=<%= session.getAttribute("Id") %>">Perfil</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/listaDoacao?doadorId=<%= session.getAttribute("Id") %>">Minhas doações</a></li>
+                    </ul>
+               	  </div>
               </div>
-            </li>
-            <li class="nav-item hover-color">
-              <a class="login txt-color hover-color" href="pages/cadastro.html">Cadastrar
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                </svg>
-              </a>
             </li>
           </ul>
         </div>
       </div>
     </section>
   </header>
-<br>
-<main class="main-tamanho">
-
+  
+  <main id="sobre" class="main-tamanho">
+    <div class="h-50 d-flex align-items-center bg-img pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="mx-auto text-center col-md-6">
+                    <h1 class="display-1 text-white">Sobre a Doreá</h1>
+                    <p class="lead text-primary">&nbsp;Somos um projeto que nasceu na
+                        <a href="https://recode.org.br/">Recode</a> em 2022, com
+                        intuito de contribuir para a agenda de desenvolvimento sustentável da onu.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="p-4 col-lg-4 col-md-6">
+                    <h4><b>Missão</b></h4>
+                    <p class="fw-semibold">Reduzir o acesso desigual aos recursos escolares.</p>
+                </div>
+                <div class="p-4 col-lg-4 col-md-6">
+                    <h4><b>Visão</b></h4>
+                    <p class="fw-semibold">Suprir a desigualdade e promover o acesso aos estudos.</p>
+                </div>
+                <div class="p-4 col-lg-4">
+                    <h4><b>Valores</b></h4>
+                    <p class="fw-semibold">Gerar oportunidades á todos, com igualdade e equidade.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
-<footer class="bg-color1">
+  
+  <footer class="bg-color1">
   <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
     <div class="col-md-4 d-flex align-items-center">
       <span class="mb-3 mb-md-0 txt-color">© 2022</span>
@@ -88,7 +125,7 @@
   </div>
 </footer>
 
-<script type="text/javascript" src="scriptjs/script.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/scriptjs/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>

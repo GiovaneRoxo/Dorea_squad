@@ -1,5 +1,5 @@
-/db/
-/model/
-/DAO/
 /controllersDoadores/
+/controllersOrganizador/
+/DAO/
 /controllersDoacao/
+/controllersProjetos/

@@ -1,16 +1,17 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	if(session.getAttribute("name") == null) {
-		response.sendRedirect("pages/loginAdm.html");
+		response.sendRedirect("/index.html");
 	}
 %>
-<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Doreá | home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Doreá</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
@@ -35,7 +36,7 @@
       <div class="container">
         <nav class="navbar navbar-dark navbar-expand-md">    
           <div class="container">
-            <h3 class="txt-color" style="width: 125px;">Dorea</h3>
+            <h3 class="txt-color" style="width: 125px;">Doreá</h3>
             <a class="navbar-brand">
             </a>
             <button class="navbar-toggler order-first" type="button" data-bs-toggle="collapse" data-bs-target="#navcol-1">
@@ -44,11 +45,11 @@
             </button>
             <div id="navcol-1" class="collapse navbar-collapse">
               <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item"><a href="#" class="nav-link active txt-color hover-color"><i class="bi bi-house-fill"></i> Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li></ul>
-            </ul>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/Home" class="nav-link active txt-color hover-color"><i class="bi bi-house-fill"></i> Home</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/doadorLogado/sobre.jsp" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/doadorLogado/parceiros.jsp" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/doadorLogado/contato.jsp" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li>
+             </ul>
             </div>
           </div>
         </nav>
@@ -65,9 +66,9 @@
 		                </svg>
 	              	</a>
                     <ul class="dropdown-menu">
-	                    <li><a class="dropdown-item" href="sair">Sair</a></li>
-	                    <li><a class="dropdown-item" href="Perfil?doadorId=<%= session.getAttribute("Id") %>">Perfil</a></li>
-	                    <li><a class="dropdown-item" href="listaDoacao?doadorId=<%=session.getAttribute("Id") %>">Minhas doações</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/sair">Sair</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/Perfil?doadorId=<%= session.getAttribute("Id") %>">Perfil</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/listaDoacao?doadorId=<%= session.getAttribute("Id") %>">Minhas doações</a></li>
                     </ul>
                	  </div>
               </div>
@@ -78,7 +79,7 @@
     </section>
   </header>
   
-  <main class="main-tamanho">
+  <main>
 	  <section class="py-5 text-center container">
 	    <div class="row py-lg-5">
 	      <div class="col-lg-6 col-md-8 mx-auto">
@@ -95,7 +96,7 @@
 		            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 		            <div class="card-body">
 		              <h2>${projetos.nome}</h2>
-		              <p class="card-text">R$ ${projetos.objetivo}</p>
+		              <p class="card-text">Valor necessário: R$ ${projetos.objetivo}</p>
 		              <div class="d-flex justify-content-between align-items-center">
 		                <div class="btn-group">
 		                  <a href="doar?projetoId=${projetos.id_projeto}" class="btn btn-sm btn-outline-secondary">Doar</a>
@@ -110,18 +111,18 @@
 	   </div>
   </main>
 
-	<footer class="bg-color1">
-	  <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
-	    <div class="col-md-4 d-flex align-items-center">
-	      <span class="mb-3 mb-md-0 txt-color">© 2022</span>
-	    </div>
-	    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-	      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-	      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-	      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-	    </ul>
-	  </div>
-	</footer>
+<footer class="bg-color1">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
+    <div class="col-md-4 d-flex align-items-center">
+      <span class="mb-3 mb-md-0 txt-color">© 2022</span>
+    </div>
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+    </ul>
+  </div>
+</footer>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/scriptjs/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>

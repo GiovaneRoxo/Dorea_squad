@@ -9,6 +9,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Doreá</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -34,7 +35,7 @@
       <div class="container">
         <nav class="navbar navbar-dark navbar-expand-md">    
           <div class="container">
-            <h3 class="txt-color" style="width: 125px;">Dorea</h3>
+            <h3 class="txt-color" style="width: 125px;">Doreá</h3>
             <a class="navbar-brand">
             </a>
             <button class="navbar-toggler order-first" type="button" data-bs-toggle="collapse" data-bs-target="#navcol-1">
@@ -43,18 +44,18 @@
             </button>
             <div id="navcol-1" class="collapse navbar-collapse">
               <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item"><a href="#" class="nav-link active txt-color hover-color"><i class="bi bi-house-fill"></i> Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li></ul>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/Inicio" class="nav-link active txt-color hover-color"><i class="bi bi-house-fill"></i> Home</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/organizadorLogado/sobre.jsp" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/organizadorLogado/parceiros.jsp" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/organizadorLogado/contato.jsp" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li>
             </ul>
             </div>
           </div>
         </nav>
       </div>
-      <div class="container d-flex">
+      <div class="container d-flex my-0 fix_logado">
         <div class="container">
-          <ul class="nav justify-content-end" style="margin-top: 15px;">
+          <ul class="nav justify-content-end" style="margin-top: 10px;">
             <li class="nav-item" style="margin-top: 0px">
               <div class="hover-color">
                   <div class="dropdown mb-2 mt-md-2">
@@ -64,10 +65,10 @@
 		                </svg>
 	              	</a>
                     <ul class="dropdown-menu">
-	                    <li><a class="dropdown-item" href="sairAdm">Sair</a></li>
-	                    <li><a class="dropdown-item" href="PerfilAdm?Id=<%= session.getAttribute("organizadorId") %>">Perfil</a></li>
-	                    <li><a class="dropdown-item" href="ProjetoF?organizadorId=<%= session.getAttribute("organizadorId") %>">Meus projetos</a></li>
-	                    <li><a class="dropdown-item" href="ProjetosCAF?organizadorId=<%= session.getAttribute("organizadorId") %>">Criar novo projeto</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/sairAdm">Sair</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/PerfilAdm?Id=<%= session.getAttribute("organizadorId") %>">Perfil</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/ProjetoF?organizadorId=<%= session.getAttribute("organizadorId") %>">Meus projetos</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/ProjetosCAF?organizadorId=<%= session.getAttribute("organizadorId") %>">Criar novo projeto</a></li>
                     </ul>
                	  </div>
               </div>

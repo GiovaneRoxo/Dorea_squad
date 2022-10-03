@@ -30,7 +30,7 @@ public class ProjetoEditar extends HttpServlet {
 		projeto.setObjetivo(Double.parseDouble(request.getParameter("objetivo")));
 		projeto.setId_projeto(Integer.parseInt(request.getParameter("projetoId")));
 		ProjetoDAO.Atualizar(projeto);
-		response.sendRedirect("pages/organizadorLogado/MeusProjetos.jsp");
+		response.sendRedirect("./Inicio");
 	}
 
 }

@@ -1,8 +1,9 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	if(session.getAttribute("name") == null) {
-		response.sendRedirect("../login.jsp");
+		response.sendRedirect("../parceiros.html");
 	}
 %>
 <!DOCTYPE html>
@@ -43,10 +44,10 @@
             </button>
             <div id="navcol-1" class="collapse navbar-collapse">
               <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item"><a href="${pageContext.request.contextPath}/Home" class="nav-link active txt-color hover-color"><i class="bi bi-house-fill"></i> Home</a></li>
-                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/doadorLogado/sobre.jsp" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
-                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/doadorLogado/parceiros.jsp" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
-                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/doadorLogado/contato.jsp" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/Inicio" class="nav-link active txt-color hover-color"><i class="bi bi-house-fill"></i> Home</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/organizadorLogado/sobre.jsp" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/organizadorLogado/parceiros.jsp" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/organizadorLogado/contato.jsp" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li>
             </ul>
             </div>
           </div>
@@ -64,9 +65,10 @@
 		                </svg>
 	              	</a>
                     <ul class="dropdown-menu">
-	                    <li><a class="dropdown-item" href="sair">Sair</a></li>
-	                    <li><a class="dropdown-item" href="Perfil?doadorId=<%= session.getAttribute("Id") %>">Perfil</a></li>
-	                    <li><a class="dropdown-item" href="#">Minhas doações</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/sairAdm">Sair</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/PerfilAdm?Id=<%= session.getAttribute("organizadorId") %>">Perfil</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/ProjetoF?organizadorId=<%= session.getAttribute("organizadorId") %>">Meus projetos</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/ProjetosCAF?organizadorId=<%= session.getAttribute("organizadorId") %>">Criar novo projeto</a></li>
                     </ul>
                	  </div>
               </div>
@@ -76,58 +78,46 @@
       </div>
     </section>
   </header>
-
-<div class="container main-tamanho mb-3">
-	<div class="row">
-		<div class="cold-md-7">
-		<hr>
-		<h3>Atualização de dados</h3>
-		<hr>
-		<form name="cadastro" action="${pageContext.request.contextPath}/Perfil" method="post">
-			<input value="${doador.id_doadores}" style="visibility:hidden" name="id">
-			<div class="form-floating mb-3">
-				<input value="${doador.nome}" name="nome" required maxlength="40" type="text" class="form-control" id="floatingInput1"> 
-				<label>Nome</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.sobrenome}" name="sobrenome" required maxlength="40" type="text" class="form-control" id="floatingInput1"> 
-				<label>Sobrenome</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.cpf}" id="cpf" name="cpf" required maxlength="14" type="text" class="form-control" onkeyup="somenteNumeros(this);"> 
-				<label>CPF</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.email}" id="email" name="email" required maxlength="50" type="text" class="form-control"onclick="ValidateEmail(document.cadastro.text1)"> 
-				<label>Email</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.telefone}" name="telefone" required maxlength="11" type="text" class="form-control"> 
-				<label>Celular: (DDD)xxxxx-xxxx </label>
-			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.senha}" name="senha" required maxlength="16" type="password" class="form-control" onkeyup='confereSenha();'> 
-				<label>Senha</label>
-			</div>
-			<button class="btn btn-primary" type="submit">Atualizar Doadores</button>
-			<a class="btn btn-secondary" href="DoadorDestroy?Id_doador=${doador.id_doadores}">Deletar conta</a>
-		</form>
-		</div>
-	</div>	
-</div>
-
-	<footer class="bg-color1 mt-5">
-	  <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
-	    <div class="col-md-4 d-flex align-items-center">
-	      <span class="mb-3 mb-md-0 txt-color">© 2022</span>
-	    </div>
-	    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-	      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-	      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-	      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-	    </ul>
-	  </div>
-	</footer>
+  
+  <main class="container d-flex align-items-center main-tamanho">
+    <div class="container pt-5">
+      <section class="mb-12 mt-6 text-center">
+        <h2 class="fw-bold mb-5">Nossos&nbsp;<span class="txt-color2">Parceiros</span></h2>
+      </section>
+      <div class="row mb-lg-5">
+        <div class="col-sm-6 p-4 justify-content-center">
+          <p class="pt-lg-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quis asperiores aliquam
+            debitis eaque consectetur. Reiciendis sint ullam, perferendis laboriosam facere quae quos ipsum
+            ea nihil, id aperiam voluptatibus expedita!
+          </p>
+        </div>
+        <div class="col-sm-6 mb-3 mt-3">
+          <div class="row">
+            <div class="col-6 mb-5 mb-lg-0">
+              <img src="${pageContext.request.contextPath}/img/logo 1.png" class="img-fluid grayscale px-4 px-md-5" alt="" aria-controls="#picker-editor">
+            </div>
+            <div class="col-6 col-6 mb-5 mb-lg-0"> <img src="${pageContext.request.contextPath}/img/logo 2.png" class="img-fluid grayscale px-4 px-md-5" alt="" aria-controls="#picker-editor"> </div>
+            <div class="row-2 col-6 mt-5 mb-lg-0"> <img src="${pageContext.request.contextPath}/img/logo 3.png" class="img-fluid grayscale px-4 px-md-5" alt="" aria-controls="#picker-editor"> </div>
+            <div class="row-2 col-6 mt-5 mb-lg-0"> <img src="${pageContext.request.contextPath}/img/logo 4.png" class="img-fluid grayscale px-4 px-md-5" alt="" aria-controls="#picker-editor"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer class="bg-color1">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
+    <div class="col-md-4 d-flex align-items-center">
+      <span class="mb-3 mb-md-0 txt-color">© 2022</span>
+    </div>
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+    </ul>
+  </div>
+</footer>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/scriptjs/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>

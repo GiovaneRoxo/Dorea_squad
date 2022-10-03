@@ -42,11 +42,7 @@ public class DoadorLogin extends HttpServlet {
 			dispatcher = request.getRequestDispatcher("/pages/doadorLogado/Logado.jsp");
 			dispatcher.forward(request, response);
 		} else {
-			response.sendRedirect("/pages/login.jsp");
+			response.sendRedirect("pages/login.jsp");
 		}
-		
-		doGet(request, response);
-		
 	}
-
 }

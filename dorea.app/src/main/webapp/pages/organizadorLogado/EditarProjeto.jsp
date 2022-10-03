@@ -43,10 +43,10 @@
             </button>
             <div id="navcol-1" class="collapse navbar-collapse">
               <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item"><a href="#" class="nav-link active txt-color hover-color"><i class="bi bi-house-fill"></i> Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li></ul>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/Inicio" class="nav-link active txt-color hover-color"><i class="bi bi-house-fill"></i> Home</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/organizadorLogado/sobre.jsp" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/organizadorLogado/parceiros.jsp" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/organizadorLogado/contato.jsp" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li>
             </ul>
             </div>
           </div>

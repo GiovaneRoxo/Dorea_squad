@@ -1,8 +1,9 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	if(session.getAttribute("name") == null) {
-		response.sendRedirect("../login.jsp");
+		response.sendRedirect("../contato.html");
 	}
 %>
 <!DOCTYPE html>
@@ -47,7 +48,7 @@
                 <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/doadorLogado/sobre.jsp" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
                 <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/doadorLogado/parceiros.jsp" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
                 <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/doadorLogado/contato.jsp" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li>
-            </ul>
+             </ul>
             </div>
           </div>
         </nav>
@@ -64,8 +65,8 @@
 		                </svg>
 	              	</a>
                     <ul class="dropdown-menu">
-	                    <li><a class="dropdown-item" href="sair">Sair</a></li>
-	                    <li><a class="dropdown-item" href="Perfil?doadorId=<%= session.getAttribute("Id") %>">Perfil</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/sair">Sair</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/Perfil?doadorId=<%= session.getAttribute("Id") %>">Perfil</a></li>
 	                    <li><a class="dropdown-item" href="#">Minhas doações</a></li>
                     </ul>
                	  </div>
@@ -76,58 +77,68 @@
       </div>
     </section>
   </header>
-
-<div class="container main-tamanho mb-3">
-	<div class="row">
-		<div class="cold-md-7">
-		<hr>
-		<h3>Atualização de dados</h3>
-		<hr>
-		<form name="cadastro" action="${pageContext.request.contextPath}/Perfil" method="post">
-			<input value="${doador.id_doadores}" style="visibility:hidden" name="id">
-			<div class="form-floating mb-3">
-				<input value="${doador.nome}" name="nome" required maxlength="40" type="text" class="form-control" id="floatingInput1"> 
-				<label>Nome</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.sobrenome}" name="sobrenome" required maxlength="40" type="text" class="form-control" id="floatingInput1"> 
-				<label>Sobrenome</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.cpf}" id="cpf" name="cpf" required maxlength="14" type="text" class="form-control" onkeyup="somenteNumeros(this);"> 
-				<label>CPF</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.email}" id="email" name="email" required maxlength="50" type="text" class="form-control"onclick="ValidateEmail(document.cadastro.text1)"> 
-				<label>Email</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.telefone}" name="telefone" required maxlength="11" type="text" class="form-control"> 
-				<label>Celular: (DDD)xxxxx-xxxx </label>
-			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.senha}" name="senha" required maxlength="16" type="password" class="form-control" onkeyup='confereSenha();'> 
-				<label>Senha</label>
-			</div>
-			<button class="btn btn-primary" type="submit">Atualizar Doadores</button>
-			<a class="btn btn-secondary" href="DoadorDestroy?Id_doador=${doador.id_doadores}">Deletar conta</a>
-		</form>
-		</div>
-	</div>	
-</div>
-
-	<footer class="bg-color1 mt-5">
-	  <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
-	    <div class="col-md-4 d-flex align-items-center">
-	      <span class="mb-3 mb-md-0 txt-color">© 2022</span>
-	    </div>
-	    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-	      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-	      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-	      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-	    </ul>
-	  </div>
-	</footer>
+  
+  <main class="container-fluid">
+    <div class="col-11 m-auto pad-top15">
+      <h2 class="text-center">Contato via Whatsapp</h2>
+      <div class=" text-center">
+        <a href="">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#06d6a0" class="bi bi-whatsapp" viewBox="0 0 16 16">
+          <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <br>
+      <div class="row">
+        <div class="col-10 col-xs-12 m-auto border" style="background-color:#CCCCCC ;">
+          <div class="text-center form-titulo text-dark">
+            <h2>Contate-nos por E-mail</h2>
+          </div>
+          <div class="col-md-6 col-md-offset-4 col-8 m-auto">
+            <form style="padding:0 0 25px 0">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label form-lab text-dark">Nome Completo</label>
+                <input type="email" class="form-control" id="examplenome" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label form-lab text-dark">E-mail</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label form-lab text-dark">Telefone</label>
+                <input type="email" class="form-control" id="exemplotelefone" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label form-lab text-dark">Mensagem</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn cor-botao-contato">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>  
+    <br>
+    <div class="row">
+      <div class="col-10 m-auto">
+        <p><strong>ENDEREÇO</strong></p>
+          <p>Praça Senador Salgado Filho, S/Nº, Mezanino 101 Bossa Nova Mall,<br> Centro, Rio de Janeiro,<br> CEP.: 20.021-340</p>
+      </div>
+    </div>
+  </main> 
+  
+  <footer class="bg-color1">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
+    <div class="col-md-4 d-flex align-items-center">
+      <span class="mb-3 mb-md-0 txt-color">© 2022</span>
+    </div>
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+    </ul>
+  </div>
+</footer>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/scriptjs/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>

@@ -132,10 +132,10 @@ public class ProjetoDAO {
 	            projeto.setFk_Organizador_Id_organizador(rs.getInt(5));
 	            projetos.add(projeto);
 	        }
-	        System.out.println("Busca realizada!");
+	        System.out.println("--Busca realizada!");
 	        return projetos;
 	    } catch(Exception e) {
-	        System.out.println("Falha ao realizar busca" + e.getMessage());
+	        System.out.println("--Falha ao realizar busca" + e.getMessage());
 	        return null;
 	    }
 	  

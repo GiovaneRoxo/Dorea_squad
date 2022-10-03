@@ -1,8 +1,9 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	if(session.getAttribute("name") == null) {
-		response.sendRedirect("../login.jsp");
+		response.sendRedirect("../sobre.html");
 	}
 %>
 <!DOCTYPE html>
@@ -47,7 +48,7 @@
                 <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/doadorLogado/sobre.jsp" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
                 <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/doadorLogado/parceiros.jsp" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
                 <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/doadorLogado/contato.jsp" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li>
-            </ul>
+             </ul>
             </div>
           </div>
         </nav>
@@ -64,8 +65,8 @@
 		                </svg>
 	              	</a>
                     <ul class="dropdown-menu">
-	                    <li><a class="dropdown-item" href="sair">Sair</a></li>
-	                    <li><a class="dropdown-item" href="Perfil?doadorId=<%= session.getAttribute("Id") %>">Perfil</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/sair">Sair</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/Perfil?doadorId=<%= session.getAttribute("Id") %>">Perfil</a></li>
 	                    <li><a class="dropdown-item" href="#">Minhas doações</a></li>
                     </ul>
                	  </div>
@@ -76,58 +77,52 @@
       </div>
     </section>
   </header>
-
-<div class="container main-tamanho mb-3">
-	<div class="row">
-		<div class="cold-md-7">
-		<hr>
-		<h3>Atualização de dados</h3>
-		<hr>
-		<form name="cadastro" action="${pageContext.request.contextPath}/Perfil" method="post">
-			<input value="${doador.id_doadores}" style="visibility:hidden" name="id">
-			<div class="form-floating mb-3">
-				<input value="${doador.nome}" name="nome" required maxlength="40" type="text" class="form-control" id="floatingInput1"> 
-				<label>Nome</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.sobrenome}" name="sobrenome" required maxlength="40" type="text" class="form-control" id="floatingInput1"> 
-				<label>Sobrenome</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.cpf}" id="cpf" name="cpf" required maxlength="14" type="text" class="form-control" onkeyup="somenteNumeros(this);"> 
-				<label>CPF</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.email}" id="email" name="email" required maxlength="50" type="text" class="form-control"onclick="ValidateEmail(document.cadastro.text1)"> 
-				<label>Email</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.telefone}" name="telefone" required maxlength="11" type="text" class="form-control"> 
-				<label>Celular: (DDD)xxxxx-xxxx </label>
-			</div>
-			<div class="form-floating mb-3">
-				<input value="${doador.senha}" name="senha" required maxlength="16" type="password" class="form-control" onkeyup='confereSenha();'> 
-				<label>Senha</label>
-			</div>
-			<button class="btn btn-primary" type="submit">Atualizar Doadores</button>
-			<a class="btn btn-secondary" href="DoadorDestroy?Id_doador=${doador.id_doadores}">Deletar conta</a>
-		</form>
-		</div>
-	</div>	
-</div>
-
-	<footer class="bg-color1 mt-5">
-	  <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
-	    <div class="col-md-4 d-flex align-items-center">
-	      <span class="mb-3 mb-md-0 txt-color">© 2022</span>
-	    </div>
-	    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-	      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-	      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-	      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-	    </ul>
-	  </div>
-	</footer>
+  
+  <main id="sobre" class="main-tamanho">
+    <div class="h-50 d-flex align-items-center bg-img pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="mx-auto text-center col-md-6">
+                    <h1 class="display-1 text-white">Sobre a Doreá</h1>
+                    <p class="lead text-primary">&nbsp;Somos um projeto que nasceu na
+                        <a href="https://recode.org.br/">Recode</a> em 2022, com
+                        intuito de contribuir para a agenda de desenvolvimento sustentável da onu.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="p-4 col-lg-4 col-md-6">
+                    <h4><b>Missão</b></h4>
+                    <p class="fw-semibold">Reduzir o acesso desigual aos recursos escolares.</p>
+                </div>
+                <div class="p-4 col-lg-4 col-md-6">
+                    <h4><b>Visão</b></h4>
+                    <p class="fw-semibold">Suprir a desigualdade e promover o acesso aos estudos.</p>
+                </div>
+                <div class="p-4 col-lg-4">
+                    <h4><b>Valores</b></h4>
+                    <p class="fw-semibold">Gerar oportunidades á todos, com igualdade e equidade.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+  
+  <footer class="bg-color1">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
+    <div class="col-md-4 d-flex align-items-center">
+      <span class="mb-3 mb-md-0 txt-color">© 2022</span>
+    </div>
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+    </ul>
+  </div>
+</footer>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/scriptjs/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>

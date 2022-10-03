@@ -1,3 +1,4 @@
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -43,10 +44,10 @@
             </button>
             <div id="navcol-1" class="collapse navbar-collapse">
               <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item"><a href="#" class="nav-link active txt-color hover-color"><i class="bi bi-house-fill"></i> Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/Inicio" class="nav-link active txt-color hover-color"><i class="bi bi-house-fill"></i> Home</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/organizadorLogado/sobre.jsp" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/organizadorLogado/parceiros.jsp" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/pages/organizadorLogado/contato.jsp" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li>
             </ul>
             </div>
           </div>
@@ -78,7 +79,36 @@
     </section>
   </header>
 
-	<main class="main-tamanho"></main>
+	<main>
+	  <section class="py-5 text-center container">
+	    <div class="row py-lg-5">
+	      <div class="col-lg-6 col-md-8 mx-auto">
+	        <h1 class="fw-light">Esses são alguns dos nossos projetos</h1>
+	      </div>
+	    </div>
+	  </section>
+	  <div class="album py-5 bg-light">
+	    <div class="container">
+	      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+	        <c:forEach items="${projetos}" var="projetos">
+		        <div class="col">
+		          <div class="card shadow-sm">
+		            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+		            <div class="card-body">
+		              <h2>${projetos.nome}</h2>
+		              <p class="card-text">R$ ${projetos.objetivo}</p>
+		              <div class="d-flex justify-content-between align-items-center">
+		                <div class="btn-group">
+		                </div>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+	       </c:forEach>
+	      </div>
+	    </div>
+	   </div>
+  </main>
 
 <footer class="bg-color1">
   <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">

@@ -32,7 +32,7 @@ public class DoarProjeto extends HttpServlet {
 	       doacao.setFk_Doadores_Id_doadores(Integer.parseInt(request.getParameter("doadorId")));
 	       doacao.setFk_Projetos_Id_projeto(Integer.parseInt(request.getParameter("projetoId")));
 	       DoacaoDAO.criarDoacao(doacao);
-	       response.sendRedirect("pages/doadorLogado/Logado.jsp");
+	       response.sendRedirect("./Home");
 	    }
 
 }

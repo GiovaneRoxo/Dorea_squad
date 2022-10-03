@@ -1,4 +1,4 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	if(session.getAttribute("name") == null) {
@@ -46,7 +46,7 @@
                 <li class="nav-item"><a href="#" class="nav-link active txt-color hover-color"><i class="bi bi-house-fill"></i> Home</a></li>
                 <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
                 <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li></ul>
+                <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li>
             </ul>
             </div>
           </div>

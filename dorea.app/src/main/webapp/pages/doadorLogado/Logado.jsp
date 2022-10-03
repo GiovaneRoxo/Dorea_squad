@@ -10,7 +10,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Doreá | home</title>
+	<title>Doreá</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
@@ -47,7 +47,7 @@
                 <li class="nav-item"><a href="#" class="nav-link active txt-color hover-color"><i class="bi bi-house-fill"></i> Home</a></li>
                 <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
                 <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li></ul>
+                <li class="nav-item"><a href="#" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li>
             </ul>
             </div>
           </div>
@@ -67,7 +67,7 @@
                     <ul class="dropdown-menu">
 	                    <li><a class="dropdown-item" href="sair">Sair</a></li>
 	                    <li><a class="dropdown-item" href="Perfil?doadorId=<%= session.getAttribute("Id") %>">Perfil</a></li>
-	                    <li><a class="dropdown-item" href="listaDoacao?doadorId=<%=session.getAttribute("Id") %>">Minhas doações</a></li>
+	                    <li><a class="dropdown-item" href="#">Minhas doações</a></li>
                     </ul>
                	  </div>
               </div>
@@ -110,18 +110,18 @@
 	   </div>
   </main>
 
-	<footer class="bg-color1">
-	  <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
-	    <div class="col-md-4 d-flex align-items-center">
-	      <span class="mb-3 mb-md-0 txt-color">© 2022</span>
-	    </div>
-	    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-	      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-	      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-	      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-	    </ul>
-	  </div>
-	</footer>
+<footer class="bg-color1">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
+    <div class="col-md-4 d-flex align-items-center">
+      <span class="mb-3 mb-md-0 txt-color">© 2022</span>
+    </div>
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+    </ul>
+  </div>
+</footer>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/scriptjs/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>

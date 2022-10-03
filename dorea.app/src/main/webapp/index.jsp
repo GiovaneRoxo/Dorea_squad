@@ -1,15 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Doreá</title>
-  <link rel="shortcut icon" href="./imgs/favicon.svg" type="image/x-icon">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="./css/stylesheet.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Doreá</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/stylesheet.css">
 </head>
+
 <body>
 
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -24,7 +27,7 @@
     </symbol>
   </svg>
 
- <header class="container-fluid bg-color1">
+<header class="container-fluid bg-color1">
     <section class="container d-flex ">
       <div class="container">
         <nav class="navbar navbar-dark navbar-expand-md">    
@@ -38,11 +41,10 @@
             </button>
             <div id="navcol-1" class="collapse navbar-collapse">
               <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item"><a href="./index.html" class="nav-link active txt-color hover-color"><i class="bi bi-house-fill"></i> Home</a></li>
+                <li class="nav-item"><a href="../index.html" class="nav-link active txt-color hover-color"><i class="bi bi-house-fill"></i> Home</a></li>
                 <li class="nav-item"><a href="./pages/sobre.html" class="nav-link active txt-color"><i class="bi bi-list-nested"></i> Sobre</a></li>
                 <li class="nav-item"><a href="./pages/parceiros.html" class="nav-link active txt-color"><i class="bi bi-hand-thumbs-up-fill"></i> Parceiros</a></li>
-                <li class="nav-item"><a href="./pages/contato.html" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li>
-              </ul>
+                <li class="nav-item"><a href="./pages/contato.html" class="nav-link active txt-color"><i class="bi bi-envelope-fill"></i> Contato</a></li></ul>
             </div>
           </div>
         </nav>
@@ -52,7 +54,7 @@
           <ul class="nav justify-content-end" style="margin-top: 15px;">
             <li class="nav-item">
               <div class="hover-color">
-              <a class="login txt-color" href="pages/login.jsp">Login 
+              <a class="login txt-color" href="${pageContext.request.contextPath}/pages/login.jsp">Login 
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                 <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                 </svg>
@@ -60,7 +62,7 @@
               </div>
             </li>
             <li class="nav-item hover-color">
-              <a class="login txt-color hover-color" href="pages/cadastro.html">Cadastrar
+              <a class="login txt-color hover-color" href="${pageContext.request.contextPath}/pages/cadastro.html">Cadastrar
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                 <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                 </svg>
@@ -71,10 +73,38 @@
       </div>
     </section>
   </header>
-<br>
-<main class="main-tamanho">
+  
+  <main>
+	  <section class="py-5 text-center container">
+	    <div class="row py-lg-5">
+	      <div class="col-lg-6 col-md-8 mx-auto">
+	        <h1 class="fw-light">Esses são alguns dos nossos projetos</h1>
+	      </div>
+	    </div>
+	  </section>
+	  <div class="album py-5 bg-light">
+	    <div class="container">
+	      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+	        <c:forEach items="${projetos}" var="projetos">
+		        <div class="col">
+		          <div class="card shadow-sm">
+		            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+		            <div class="card-body">
+		              <h2>${projetos.nome}</h2>
+		              <p class="card-text">Valor necessário: R$ ${projetos.objetivo}</p>
+		              <div class="d-flex justify-content-between align-items-center">
+		                <div class="btn-group">
+		                </div>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+	       </c:forEach>
+	      </div>
+	    </div>
+	   </div>
+  </main>
 
-</main>
 <footer class="bg-color1">
   <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
     <div class="col-md-4 d-flex align-items-center">
@@ -88,7 +118,7 @@
   </div>
 </footer>
 
-<script type="text/javascript" src="scriptjs/script.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/scriptjs/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>

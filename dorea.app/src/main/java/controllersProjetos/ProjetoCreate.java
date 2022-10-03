@@ -36,8 +36,7 @@ public class ProjetoCreate extends HttpServlet {
 		projeto.setFk_Organizador_Id_organizador(Integer.parseInt(request.getParameter("organizadorId")));
 		projeto.setArrecadado(0.00);
 		ProjetoDAO.criarProjeto(projeto);
-		RequestDispatcher despachar = request.getRequestDispatcher("pages/organizadorLogado/LogadoAdm.jsp");
-		despachar.forward(request, response);
+		response.sendRedirect("./Inicio");
 	}
 
 }

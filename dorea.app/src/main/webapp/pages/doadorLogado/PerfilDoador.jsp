@@ -65,9 +65,9 @@
 		                </svg>
 	              	</a>
                     <ul class="dropdown-menu">
-	                    <li><a class="dropdown-item" href="sair">Sair</a></li>
-	                    <li><a class="dropdown-item" href="Perfil?doadorId=<%= session.getAttribute("Id") %>">Perfil</a></li>
-	                    <li><a class="dropdown-item" href="#">Minhas doações</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/sair">Sair</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/Perfil?doadorId=<%= session.getAttribute("Id") %>">Perfil</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/listaDoacao?doadorId=<%= session.getAttribute("Id") %>">Minhas doações</a></li>
                     </ul>
                	  </div>
               </div>

@@ -16,7 +16,7 @@ public class DeletarProjeto extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int projetoId = Integer.parseInt(request.getParameter("projetoId"));
 		ProjetoDAO.deletarProjeto(projetoId);
-		response.sendRedirect("pages/organizadorLogado/MeusProjetos.jsp");
+		response.sendRedirect("./Inicio");
 	}
 
 }

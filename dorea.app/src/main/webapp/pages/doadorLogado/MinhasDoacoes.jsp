@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%
 	if(session.getAttribute("name") == null) {
-		response.sendRedirect("pages/loginAdm.html");
+		response.sendRedirect("../login.jsp");
 	}
 %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
@@ -66,10 +66,9 @@
 		                </svg>
 	              	</a>
                     <ul class="dropdown-menu">
-	                    <li><a class="dropdown-item" href="sairAdm">Sair</a></li>
-	                    <li><a class="dropdown-item" href="PerfilAdm?Id=<%= session.getAttribute("organizadorId") %>">Perfil</a></li>
-	                    <li><a class="dropdown-item" href="ProjetoF?organizadorId=<%= session.getAttribute("organizadorId") %>">Meus projetos</a></li>
-	                    <li><a class="dropdown-item" href="ProjetosCAF?organizadorId=<%= session.getAttribute("organizadorId") %>">Criar novo projeto</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/sair">Sair</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/Perfil?doadorId=<%= session.getAttribute("Id") %>">Perfil</a></li>
+	                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/listaDoacao?doadorId=<%= session.getAttribute("Id") %>">Minhas doações</a></li>
                     </ul>
                	  </div>
               </div>

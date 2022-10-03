@@ -132,3 +132,7 @@ DEFINE TEXTO EM BRANCO COM CONTORNO PRETO
 .pad-top15{
     padding-top: 15px !important;
 }
+
+.fix_logado{
+	width: 180px;
+}

@@ -36,7 +36,7 @@
       <div class="container">
         <nav class="navbar navbar-dark navbar-expand-md">    
           <div class="container">
-            <h3 class="txt-color" style="width: 125px;">Dorea</h3>
+            <h3 class="txt-color" style="width: 125px;">Doreá</h3>
             <a class="navbar-brand">
             </a>
             <button class="navbar-toggler order-first" type="button" data-bs-toggle="collapse" data-bs-target="#navcol-1">
@@ -54,9 +54,9 @@
           </div>
         </nav>
       </div>
-      <div class="container d-flex">
+      <div class="container d-flex my-0 fix_logado">
         <div class="container">
-          <ul class="nav justify-content-end" style="margin-top: 15px;">
+          <ul class="nav justify-content-end" style="margin-top: 10px;">
             <li class="nav-item" style="margin-top: 0px">
               <div class="hover-color">
                   <div class="dropdown mb-2 mt-md-2">

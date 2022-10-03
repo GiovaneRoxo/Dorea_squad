@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <%
 	if(session.getAttribute("name") == null) {
-		response.sendRedirect("/pages/login.jsp");
+		response.sendRedirect("/index.html");
 	}
 %>
 <!DOCTYPE html>
@@ -36,7 +36,7 @@
       <div class="container">
         <nav class="navbar navbar-dark navbar-expand-md">    
           <div class="container">
-            <h3 class="txt-color" style="width: 125px;">Dorea</h3>
+            <h3 class="txt-color" style="width: 125px;">Doreá</h3>
             <a class="navbar-brand">
             </a>
             <button class="navbar-toggler order-first" type="button" data-bs-toggle="collapse" data-bs-target="#navcol-1">

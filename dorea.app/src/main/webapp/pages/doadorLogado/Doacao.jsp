@@ -5,12 +5,11 @@
 		response.sendRedirect("pages/loginAdm.html");
 	}
 %>
-<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Doreá | home</title>
+	<title>Doreá | Doação</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
@@ -65,9 +64,10 @@
 		                </svg>
 	              	</a>
                     <ul class="dropdown-menu">
-	                    <li><a class="dropdown-item" href="sair">Sair</a></li>
-	                    <li><a class="dropdown-item" href="Perfil?doadorId=<%= session.getAttribute("Id") %>">Perfil</a></li>
-	                    <li><a class="dropdown-item" href="listaDoacao?doadorId=<%=session.getAttribute("Id") %>">Minhas doações</a></li>
+	                    <li><a class="dropdown-item" href="sairAdm">Sair</a></li>
+	                    <li><a class="dropdown-item" href="PerfilAdm?Id=<%= session.getAttribute("organizadorId") %>">Perfil</a></li>
+	                    <li><a class="dropdown-item" href="ProjetoF?organizadorId=<%= session.getAttribute("organizadorId") %>">Meus projetos</a></li>
+	                    <li><a class="dropdown-item" href="ProjetosCAF?organizadorId=<%= session.getAttribute("organizadorId") %>">Criar novo projeto</a></li>
                     </ul>
                	  </div>
               </div>
@@ -77,51 +77,42 @@
       </div>
     </section>
   </header>
-  
-  <main class="main-tamanho">
-	  <section class="py-5 text-center container">
-	    <div class="row py-lg-5">
-	      <div class="col-lg-6 col-md-8 mx-auto">
-	        <h1 class="fw-light">Esses são alguns dos nossos projetos</h1>
-	      </div>
-	    </div>
-	  </section>
-	  <div class="album py-5 bg-light">
-	    <div class="container">
-	      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-	        <c:forEach items="${projetos}" var="projetos">
-		        <div class="col">
-		          <div class="card shadow-sm">
-		            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-		            <div class="card-body">
-		              <h2>${projetos.nome}</h2>
-		              <p class="card-text">R$ ${projetos.objetivo}</p>
-		              <div class="d-flex justify-content-between align-items-center">
-		                <div class="btn-group">
-		                  <a href="doar?projetoId=${projetos.id_projeto}" class="btn btn-sm btn-outline-secondary">Doar</a>
-		                </div>
-		              </div>
-		            </div>
-		          </div>
-		        </div>
-	       </c:forEach>
-	      </div>
-	    </div>
-	   </div>
-  </main>
 
-	<footer class="bg-color1">
-	  <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
-	    <div class="col-md-4 d-flex align-items-center">
-	      <span class="mb-3 mb-md-0 txt-color">© 2022</span>
-	    </div>
-	    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-	      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-	      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-	      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-	    </ul>
-	  </div>
-	</footer>
+<div class="container main-tamanho">
+	<div class="row">
+		<div class="cold-md-7">
+		<hr>
+		<h3>Fazer Doação</h3>
+		<hr>
+		<form name="doar" action="${pageContext.request.contextPath}/doar" method="post">
+			<input value="<%=session.getAttribute("Id") %>" style="visibility:hidden" name="doadorId">
+			<input value="${projeto.id_projeto}" style="visibility:hidden" name="projetoId">
+			<div class="form-floating mb-3">
+				<input name="nome" required maxlength="40" type="text" class="form-control" id="floatingInput1" value="${projeto.nome}"> 
+				<label>Nome</label>
+			</div>
+			<div class="form-floating mb-3">
+				<input name="valor" required type="number" class="form-control"> 
+				<label>Valor</label>
+			</div>
+			<button class="btn btn-primary" type="submit">Doar</button>
+		</form>
+		</div>
+	</div>	
+</div>
+
+<footer class="bg-color1">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
+    <div class="col-md-4 d-flex align-items-center">
+      <span class="mb-3 mb-md-0 txt-color">© 2022</span>
+    </div>
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+    </ul>
+  </div>
+</footer>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/scriptjs/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>

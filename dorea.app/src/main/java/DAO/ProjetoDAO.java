@@ -112,4 +112,32 @@ public class ProjetoDAO {
 			System.out.println("--Incorrect delete on projeto. " + e.getMessage());
 		}
 	}
+	
+	public static ArrayList<Projetos> listarTodos() {
+        
+	    ArrayList<Projetos> projetos = new ArrayList<Projetos>();
+	    
+	    sql = "SELECT * FROM projetos";
+	    
+	    try {
+	        PreparedStatement stmt = connection.prepareStatement(sql);
+	        ResultSet rs = stmt.executeQuery();
+	        
+	        while (rs.next()) {
+	            Projetos projeto = new Projetos();
+	            projeto.setId_projeto(rs.getInt(1));
+	            projeto.setNome(rs.getString(2));
+	            projeto.setObjetivo(rs.getDouble(3));
+	            projeto.setArrecadado(rs.getDouble(4));
+	            projeto.setFk_Organizador_Id_organizador(rs.getInt(5));
+	            projetos.add(projeto);
+	        }
+	        System.out.println("Busca realizada!");
+	        return projetos;
+	    } catch(Exception e) {
+	        System.out.println("Falha ao realizar busca" + e.getMessage());
+	        return null;
+	    }
+	  
+	}
 }

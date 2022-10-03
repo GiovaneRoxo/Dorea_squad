@@ -77,7 +77,7 @@
     </section>
   </header>
 
-<div class="container main-tamanho">
+<div class="container main-tamanho mb-3">
 	<div class="row">
 		<div class="cold-md-7">
 		<hr>
@@ -116,7 +116,7 @@
 	</div>	
 </div>
 
-	<footer class="bg-color1">
+	<footer class="bg-color1 mt-5">
 	  <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
 	    <div class="col-md-4 d-flex align-items-center">
 	      <span class="mb-3 mb-md-0 txt-color">© 2022</span>
